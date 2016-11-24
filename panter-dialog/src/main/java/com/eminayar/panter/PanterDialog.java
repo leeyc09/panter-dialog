@@ -46,6 +46,7 @@ public class PanterDialog extends Dialog {
     private String messageText;
     private String titleText;
     private String inputHint;
+    private String inputText;
     private String emptyErrorText;
     private int titleSize = Constants.DEFAULT_TITLE_SIZE;
     private int titleColor = Constants.DEFAULT_COLOR;
@@ -266,6 +267,7 @@ public class PanterDialog extends Dialog {
             recyclerView.setAdapter(singleChoiceAdapter);
         message.setText(messageText);
         input.setHint(inputHint);
+        input.setText(inputText);
     }
 
     /**
@@ -507,6 +509,11 @@ public class PanterDialog extends Dialog {
      */
     public PanterDialog input(OnTextInputConfirmListener listener) {
         this.inputListener = new TextInputListener(listener);
+        return this;
+    }
+
+    public PanterDialog inputText(String inputText) {
+        this.inputText = inputText;
         return this;
     }
 
